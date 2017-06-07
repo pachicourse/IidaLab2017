@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install vim python3 python3-pip olsrd
+sudo apt-get install vim python3 python3-pip olsrd git
 {
 echo 'syntax on'
 echo 'set autoindent'
