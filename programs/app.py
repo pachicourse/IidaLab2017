@@ -12,7 +12,7 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html')
 
-@app.route('/resque', methods=['POST'])
+@app.route('/rescue', methods=['POST'])
 def relay_message():
     if request.headers['Content-Type'] != 'application/json':
         print(request.headers['Content-Type'])
