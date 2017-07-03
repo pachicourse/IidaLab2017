@@ -17,7 +17,7 @@ def is_empty(*arg):
 
 #ROOTにjsonを送信
 def send_json(json_data):
-    url = 'http://' + ROOT_ADDRESS + ':' + ROOT_PORT + '/resque'
+    url = 'http://' + ROOT_ADDRESS + ':' + ROOT_PORT + '/rescue'
     r = requests.post(url, json_data, \
                       headers={'Content-Type':'application/json'})
     print(r)
@@ -40,7 +40,6 @@ def relay_message():
         print(request.headers['Content-Type'])
         return 'It is not json data.'
     print(request.json)
-    print(request.json['message'])
     send_json(json.dumps(request.json))
     return 'done'
 
