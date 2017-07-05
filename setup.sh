@@ -13,3 +13,4 @@ echo 'set number'
 } > ~/.vimrc
 
 sudo pip3 install Flask
+sudo pip3 install netifaces

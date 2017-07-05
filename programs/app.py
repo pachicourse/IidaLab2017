@@ -9,7 +9,7 @@ ROOT_PORT = os.environ.get('MESH_ROOT_PORT')
 app = Flask(__name__)
 
 def is_empty(*arg):
-    #すべてに文字が入力されている時Flaseを返す
+    #渡されたすべての変数に文字が入力されている時Flaseを返す
     for form_data in arg:
         if not form_data:
             return True
