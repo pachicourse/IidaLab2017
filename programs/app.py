@@ -31,7 +31,7 @@ def main_page():
     if request.method == 'POST' and not is_empty(name, location, situation):
         relay_data = json.dumps({'name':name,'location':location,
                                  'situation':situation})
-        send_json(relay_data)
+        #send_json(relay_data)
     return render_template('index.html')
 
 @app.route('/rescue', methods=['POST'])
