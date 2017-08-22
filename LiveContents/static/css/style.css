@@ -1,0 +1,37 @@
+
+main {
+    width: 80%;
+}
+
+body {
+    background-color:
+}
+
+div#wrapper {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+input {
+    width: 80%;
+}
+
+input#location {
+    min-height: 50px;
+}
+
+input#situation {
+    min-height: 200px;
+}
+
+input#submit {
+    width: 20%;
+    margin-top: 10px;
+    margin-left: auto;
+}
