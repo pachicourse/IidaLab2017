@@ -1,13 +1,7 @@
 function checkForm(){
     var flag = 0
     //formの内容をチェック
-    if(document.form.name.value == ""){
-        flag = 1
-    }
-    else if(document.form.location.value == ""){
-        flag = 1
-    }
-    else if(document.form.situation.value == ""){
+    if(document.form.password.value == ""){
         flag = 1
     }
     //検査
