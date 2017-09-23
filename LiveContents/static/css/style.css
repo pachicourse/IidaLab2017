@@ -4,11 +4,12 @@ main {
 }
 
 body {
+    background-color:
 }
 
 div#wrapper {
     text-align: center;
-    width: 100%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -21,7 +22,16 @@ input {
     width: 80%;
 }
 
-input#password {
-    margin-bottom: 15px;
+input#location {
     min-height: 50px;
+}
+
+input#situation {
+    min-height: 200px;
+}
+
+input#submit {
+    width: 20%;
+    margin-top: 10px;
+    margin-left: auto;
 }

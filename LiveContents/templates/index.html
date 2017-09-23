@@ -1,9 +1,8 @@
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-        <script type="text/javascript" src="/static/js/formCheck.js"></script>
+        <meta charset="utf-8"></meta>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css?var=37" />
+        <script type="text/javascript" src="/static/js/formCheck.js?var=2"></script>
         <title>Flask Test</title>
     </head>
     <body>
@@ -11,14 +10,16 @@
             {{ error }}
         {% endif %}
         <div id='wrapper'>
-            <img src="/static/img/logo_pachimusic.png" />
+            <img src="../static/img/Rescue.png" />
             <form method="POST" name="form" onSubmit="return checkForm()">
-                <p>これはindex.html</p>
-                <input type="text" id="password" name="password" placeholder="合言葉は？"/>
+                <p>氏名</p>
+                <input type="text" id="name" name="name" placeholder="救援 太郎"/>
+                <p>場所</p>
+                <input type="text" id="location" name="location" placeholder="xx小学校"/>
+                <p>状況</p>
+                <input type="text" id="situation" name="situation" placeholder="例:屋上に10人で避難しています。怪我人が3人います。">
                 <input type="submit" id="submit"></input>
             <form>
-            <p>これがコンテンツ</p>
-            <a download="スペシャル画像" href="/static/contents/img.png">これ</a>
         </div>
     </body>
 </html>
