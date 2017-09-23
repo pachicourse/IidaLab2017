@@ -7,18 +7,13 @@
         <title>Flask Test</title>
     </head>
     <body>
-        {% if error %}
-            {{ error }}
-        {% endif %}
         <div id='wrapper'>
-            <img src="/static/img/logo_pachimusic.png" />
+            <img src="../static/img/logo_pachimusic.png" />
             <form method="POST" name="form" onSubmit="return checkForm()">
-                <p>これはindex.html</p>
+                <p>これはlogin.html</p>
                 <input type="text" id="password" name="password" placeholder="合言葉は？"/>
                 <input type="submit" id="submit"></input>
             <form>
-            <p>これがコンテンツ</p>
-            <a download="スペシャル画像" href="/static/contents/img.png">これ</a>
         </div>
     </body>
 </html>
