@@ -9,7 +9,7 @@ body {
 
 div#wrapper {
     text-align: center;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -34,4 +34,10 @@ input#submit {
     width: 20%;
     margin-top: 10px;
     margin-left: auto;
+}
+
+@media screen and (max-width: 480px){
+    img {
+        width: 30%;
+    }
 }

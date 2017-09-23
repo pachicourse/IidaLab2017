@@ -14,3 +14,4 @@ echo 'set number'
 
 sudo pip3 install Flask
 sudo pip3 install netifaces
+#sudo pip3 install git+git://github.com/pachicourse/mode-py.git
