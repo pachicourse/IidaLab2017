@@ -3,7 +3,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-        <script type="text/javascript" src="/static/js/formCheck.js"></script>
+        <link rel="stylesheet" href="/static/css/flickity/dist/flickity.min.css">
         <title>Flask Test</title>
     </head>
     <body>
@@ -12,13 +12,31 @@
         {% endif %}
         <div id='wrapper'>
             <img src="/static/img/logo_pachimusic.png" />
-            <form method="POST" name="form" onSubmit="return checkForm()">
-                <p>これはindex.html</p>
-                <input type="text" id="password" name="password" placeholder="合言葉は？"/>
-                <input type="submit" id="submit"></input>
-            <form>
             <p>これがコンテンツ</p>
-            <a download="スペシャル画像" href="/static/contents/img.png">これ</a>
+            <div class="main-gallery" style="margin-bottom: 30px">
+                <div class="gallery-cell" style="width: 100%">
+                    <img src="/static/contents/img.png" alt="" >
+                </div>
+                <div class="gallery-cell" style="width: 100%">
+                    <img src="/static/contents/img.png" alt="" >
+                </div>
+                <div class="gallery-cell" style="width: 100%">
+                    <img src="/static/contents/img.png" alt="" >
+                </div>
+            </div>
+            <p>
+                <a download="スペシャル画像" href="/static/contents/img.png">これ1</a>
+            </p>
+            <p>
+                <a download="スペシャル画像" href="/static/contents/img.png">これ2</a>
+            </p>
+            <p>
+                <a download="スペシャル画像" href="/static/contents/img.png">これ3</a>
+            </p>
         </div>
+
+        <script src="/static/js/jquery-3.2.1.min.js"></script>
+        <script src="/static/css/flickity/dist/flickity.pkgd.min.js"></script>
+        <script src="/static/js/main.js"></script>
     </body>
 </html>
