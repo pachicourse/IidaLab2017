@@ -27,7 +27,9 @@ if __name__ == '__main__':
         print('JSONDecodeError: ', e)
 
     store = Store(data);
+
     while 1:
         store.broadcast_store_data()
         time.sleep(1)
+
     # app.run(host="0.0.0.0", debug=False, threaded=True)
