@@ -7,23 +7,48 @@ LED_PIN = 21
 app = Flask(__name__)
 
 class Navi:
-    def __init__(self, needs_data):
-        self.needs_data = needs_data
+    def __init__(self, json_data):
+        self.needs_data = json_data['needs']
 
-    def check_needs(self, posted_data):
-        return
+    def is_needed(self, posted_data):
+        result = ''
+
+        for n in self.needs_data:
+            print(n)
+            # 適当 要吟味
+            matched_type = self._check_type(n['type'], posted_data['type'])
+            matched_keywords = self._check_keywords(n['keywords'], posted_data['keywords'].split(','))
+            if matched_type and matched_keywords:
+                result = 'マッチしました!\nタイプ：' + matched_type + '\n'
+                result = result + 'キーワード：' + matched_keywords + '\n'
+                result = result + '住所：' + posted_data['address']
+
+        return result
+
+    # 存在するならその店舗タイプを、そうでなければ空文字を返す
+    def _check_type(self, navi_type, store_type):
+        if navi_type == store_type:
+            return navi_type
+        else:
+            return ''
+
+    def _check_keywords(self, navi_keywords, store_keywords):
+        result = ''
+        for k in store_keywords:
+            if k in navi_keywords:
+                result = result + k + ' '
+
+        return result
+
 
 @app.route('/', methods=['GET', 'POST'])
 def recieve_store_data():
     if request.method == 'POST':
         posted_data = request.json
-        store_name = request.json['name']
-        store_type = request.json['type']
-        store_keyword = request.json['keywords']
+        send_message = navi.is_needed(posted_data)
+        if send_message:
+            print(send_message)
 
-        print(navi.needs_data)
-        print(posted_data)
-        # navi.check_needs
         return 'hello'
 
     if request.method == 'GET':
