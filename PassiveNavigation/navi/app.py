@@ -1,6 +1,6 @@
 import json
 # import wiringpi as wp
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 #適当 あとで決める
 LED_PIN = 21
@@ -14,8 +14,6 @@ class Navi:
         result = ''
 
         for n in self.needs_data:
-            print(n)
-            # 適当 要吟味
             matched_type = self._check_type(n['type'], posted_data['type'])
             matched_keywords = self._check_keywords(n['keywords'], posted_data['keywords'].split(','))
             if matched_type and matched_keywords:
@@ -32,6 +30,7 @@ class Navi:
         else:
             return ''
 
+    # 存在するならマッチしたキーワードを' 'で区切った文字列を、そうでなければ空文字を返す
     def _check_keywords(self, navi_keywords, store_keywords):
         result = ''
         for k in store_keywords:
@@ -52,7 +51,7 @@ def recieve_store_data():
         return 'hello'
 
     if request.method == 'GET':
-        return
+        return render_template('index.html')
 
 if __name__ == '__main__':
     # wp.wiringPiSetupGpio()
