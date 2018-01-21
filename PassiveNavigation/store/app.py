@@ -2,7 +2,7 @@ import requests
 import json
 import os
 import time
-
+from contextlib import suppress
 
 NETWORK_BROADCAST_ADDRESS = os.environ.get('NAVI_NETWORK')
 
@@ -12,10 +12,19 @@ class Store:
         self.network = network
 
     def broadcast_store_data(self):
-        r = requests.post('http://' + self.network, \
-                          json.dumps(self.store_info), \
-                          headers={'Content-Type':'application/json'})
-        print(r)
+        # 255.255.255.0
+        # 処理的に限界(ブロードキャストできるようになったら大丈夫かも)
+        for i in range(1, 255):
+            # requestsでブロードキャストする方法がいまいちわからないので
+            # とりあえず握りつぶす(罪深い)
+            with suppress(Exception):
+                url = 'http://' + self.network + str(i) + ':5000'
+                print(url)
+                r = requests.post(url, \
+                                  json.dumps(self.store_info), \
+                                  headers={'Content-Type':'application/json'},
+                                  timeout=0.1)
+                print(r)
 
 if __name__ == '__main__':
     try:
