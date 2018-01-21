@@ -2,9 +2,24 @@ import json
 # import wiringpi as wp
 from flask import Flask, request, render_template
 
+from multiprocessing.managers import BaseManager
+from time import sleep
+
 #適当 あとで決める
 LED_PIN = 21
 app = Flask(__name__)
+
+# # メソッドを定義する
+# BaseManager.register('get_queue',callable=lambda:queue)
+#
+# # サーバの設定
+# m = BaseManager(address=('192.168.43.70',8001),authkey=b'a')
+#
+# # サーバに接続
+# m.connect()
+#
+# # サーバのQueueを取得する
+# queue = m.get_queue()
 
 class Navi:
     def __init__(self, json_data):
@@ -47,7 +62,7 @@ def recieve_store_data():
         send_message = navi.is_needed(posted_data)
         if send_message:
             print(send_message)
-
+            open('./temp.txt', 'w').write('----\n' + send_message + '\n----\n')
         return 'hello'
 
     if request.method == 'GET':
@@ -66,5 +81,7 @@ if __name__ == '__main__':
     except json.JSONDecodeError as e:
         print('JSONDecodeError: ', e)
 
+    #init
     navi = Navi(data);
+    open('./temp.txt', 'w').write('')
     app.run(host="0.0.0.0", debug=False, threaded=True)
