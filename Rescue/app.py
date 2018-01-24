@@ -1,3 +1,5 @@
+# WANと札属されていない端末用のプログラム
+
 from flask import Flask, render_template, request
 import os
 import requests
