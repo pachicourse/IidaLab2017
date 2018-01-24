@@ -28,7 +28,7 @@ def send_email_self(json, address, password):
     raw_msg = ''
 
     for key in json:
-        raw_msg = raw_msg + key + '\n' + json[key] + '\n\n'
+        raw_msg = raw_msg + '・' + key + '\n' + json[key] + '\n\n'
 
     msg = MIMEText(raw_msg, 'plain', jp,)
     fromaddr = address
